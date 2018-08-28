@@ -73,3 +73,5 @@ RUN docker-php-ext-install gd
 
 # Instala as extensões do mysql e mysqli
 RUN docker-php-ext-install pdo_mysql mysqli
+
+RUN docker-php-ext-install mysql
