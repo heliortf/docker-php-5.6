@@ -83,6 +83,6 @@ RUN yes | pecl install xdebug-2.5.5 \
 
 
 # Run composer and phpunit installation.
-RUN composer selfupdate && \
-    composer require "phpunit/phpunit:~4.8.5" --prefer-source --no-interaction && \
-    ln -s /tmp/vendor/bin/phpunit /usr/local/bin/phpunit
+RUN curl https://phar.phpunit.de/phpunit-5.phar -L -o phpunit.phar \
+    && chmod +x phpunit.phar \
+    && mv phpunit.phar /usr/local/bin/phpunit
