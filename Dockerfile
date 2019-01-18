@@ -86,3 +86,8 @@ RUN yes | pecl install xdebug-2.5.5 \
 RUN curl https://phar.phpunit.de/phpunit-5.phar -L -o phpunit.phar \
     && chmod +x phpunit.phar \
     && mv phpunit.phar /usr/local/bin/phpunit
+
+# Instala o IMAP
+RUN apt-get update && apt-get install -y libc-client-dev libkrb5-dev && rm -r /var/lib/apt/lists/*
+RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
+    && docker-php-ext-install imap
