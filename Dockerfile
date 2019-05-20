@@ -91,3 +91,5 @@ RUN curl https://phar.phpunit.de/phpunit-5.phar -L -o phpunit.phar \
 RUN apt-get update && apt-get install -y libc-client-dev libkrb5-dev && rm -r /var/lib/apt/lists/*
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install imap
+
+RUN apt-get update && apt-get -y install ghostscript && apt-get clean
