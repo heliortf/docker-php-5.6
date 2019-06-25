@@ -93,3 +93,9 @@ RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install imap
 
 RUN apt-get update && apt-get -y install ghostscript && apt-get clean
+
+# Habilita o Mod Rewrite do Apache 2
+RUN a2enmod rewrite
+
+# Habilita o SSL do Apache 2
+RUN a2enmod ssl
