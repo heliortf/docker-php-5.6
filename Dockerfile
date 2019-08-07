@@ -68,7 +68,8 @@ RUN apt-get update
 RUN ACCEPT_EULA=Y apt-get -y --allow-unauthenticated install msodbcsql17
 
 # Instala a biblioteca GD
-RUN apt-get update -y && apt-get install -y libpng-dev
+RUN apt-get update -y && apt-get install -y libpng-dev libfreetype6-dev libjpeg62-turbo-dev
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ 
 RUN docker-php-ext-install gd
 
 # Instala as extensões do mysql e mysqli
