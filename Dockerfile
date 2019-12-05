@@ -100,3 +100,6 @@ RUN a2enmod rewrite
 
 # Habilita o SSL do Apache 2
 RUN a2enmod ssl
+
+# Habilita o ext-sockets ( necessario para o rabbit mq )
+RUN docker-php-ext-install sockets
